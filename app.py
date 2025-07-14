@@ -9,7 +9,6 @@ from utils.completion import complete
 
 st.title("Streamlit RAG with Chroma and LangChain")
 
-# Load and chunk documents
 if st.button("Index Documents"):
     st.write("Indexing...")
     data_dir = "data"
@@ -28,7 +27,6 @@ if st.button("Index Documents"):
     add_to_chroma(chunks, ids)
     st.success("Documents indexed successfully.")
 
-# Query interface
 query = st.text_input("Ask a question")
 if query:
     contexts = query_chroma(query, n_results=3)
